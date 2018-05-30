@@ -63,8 +63,6 @@ class bcisDeveloperFrontend {
 		else {
 			$siteInformation = new bcisSiteInformation();
 
-			if (get_option('bcisShowImage') == 'True') { $unicorn = '<img id="dev_img" src="' . plugins_url( "developerNotice/img/unicorn.png" ) . '"/>';}
-
 			// Output Main Bar
 			echo '
 			<div id="dev_plugin" style="background-color: ' . get_option('bcisBarColor') .';">
@@ -76,9 +74,16 @@ class bcisDeveloperFrontend {
 				<span class="developerVersion event" onclick="toggleDisplay(\'developerQueries\')">' . count( $siteInformation->getSiteQueries() ) . ' Queries</span>
 				<span class="developerVersion event" onclick="toggleDisplay(\'developerPHPErrors\')">' . $this->errorCount . ' PHP-Errors</span>
         		' . $siteInformation->getSiteTitle() . ' Developer environment
-                ' . $unicorn .'
-    		</div>
-    		';
+             ';
+
+             // Output Unicorn
+             if (get_option('bcisShowImage') == 'True') { 
+             	echo '<img id="dev_img" src="' . plugins_url( "developerNotice/img/unicorn.png" ) . '"/> </div>';
+             }
+             else {
+             	echo '</div>';
+             }
+
 
 			// Shows all WP Page queries
 			_e('<div class="developerQueries" id="developerQueries">');

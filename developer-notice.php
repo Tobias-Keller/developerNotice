@@ -14,9 +14,9 @@ Domain Path: /languages
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /*
- * Load classes
+ * require classes
  * */
-require_once ('class/developerPluginMaintenance.php');
+require_once( 'class/class_maintenance.php' );
 require_once ('class/DeveloperFrontend.php');
 require_once ('class/siteInformations.php');
 require_once ('class/bcisDeveloperSettings.php');
